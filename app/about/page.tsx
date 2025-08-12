@@ -101,7 +101,7 @@ export default function AboutPage() {
           <div>
             <h3 className="font-semibold text-xl text-primary mb-3">Scalable Governance</h3>
             <p className="text-textDark text-base leading-relaxed">
-              Replicable "Leadership Kits" for village self-management.
+              Replicable &quot;Leadership Kits&quot; for village self-management.
             </p>
           </div>
           <div>
