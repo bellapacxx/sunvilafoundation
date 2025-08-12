@@ -1,21 +1,21 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 
 const stats = [
-  { label: 'Pilot Smart Villages launched (2020–2024)', value: 50, suffix: '+', icon: '🏘️' },
-  { label: 'Poverty Reduction in implementation zones', value: 30, suffix: '%', icon: '📉' },
-  { label: 'Trained in GDHRP digital skills', value: 10000, suffix: '+', icon: '🎓' },
-  { label: 'Hectares Reforested via 7 Trees per Newly Born Child (7TPC)', value: 200, suffix: '', icon: '🌳' },
+  { label: "Pilot Smart Villages launched (2020–2024)", value: 50, suffix: "+", icon: "🏘️" },
+  { label: "Poverty Reduction in implementation zones", value: 30, suffix: "%", icon: "📉" },
+  { label: "Trained in GDHRP digital skills", value: 10000, suffix: "+", icon: "🎓" },
+  { label: "Hectares Reforested via 7 Trees per Newly Born Child (7TPC)", value: 200, suffix: "", icon: "🌳" },
 ];
 
 const roadmapItems = [
-  'Public-private partnerships',
-  'Diaspora investment networks',
-  'UN SDG-aligned funding',
+  "Public-private partnerships",
+  "Diaspora investment networks",
+  "UN SDG-aligned funding",
 ];
 
-// Simple CountUp hook
+// CountUp hook
 function useCountUp(end: number, duration = 2000) {
   const [count, setCount] = useState(0);
   useEffect(() => {
@@ -35,14 +35,18 @@ function useCountUp(end: number, duration = 2000) {
   return count;
 }
 
-// Custom hook to call multiple countups
-function useCountUps(values: number[], duration = 2000) {
-  return values.map((value) => useCountUp(value, duration));
+// Single CountUp component for one stat
+function CountUpStat({ value, suffix }: { value: number; suffix: string }) {
+  const count = useCountUp(value);
+  return (
+    <>
+      {count.toLocaleString()}
+      {suffix}
+    </>
+  );
 }
 
 export default function ImpactScalability() {
-  const counts = useCountUps(stats.map((stat) => stat.value));
-
   return (
     <section className="w-full mx-auto px-6 py-20 bg-[var(--color-lightBg)] rounded-lg shadow-lg relative overflow-hidden">
       {/* Decorative background shapes */}
@@ -64,8 +68,7 @@ export default function ImpactScalability() {
               <div className="text-4xl">{icon}</div>
               <div>
                 <p className="text-3xl font-extrabold text-[var(--color-primary)]">
-                  {counts[i].toLocaleString()}
-                  {suffix}
+                  <CountUpStat value={stats[i].value} suffix={suffix} />
                 </p>
                 <p className="text-textDark font-medium">{label}</p>
               </div>
