@@ -32,7 +32,7 @@ export default function InitiativesPage() {
           <ul className="list-disc list-inside text-textDark leading-relaxed space-y-2 text-lg">
             <li>8KW Solar-Powered Homes (Carbon Credit Model)</li>
             <li>Rainwater harvesting & organic farming</li>
-            <li>&quot;7 Trees per Child" Reforestation Policy</li>
+            <li>&quot;7 Trees per Child&quot; Reforestation Policy</li>
           </ul>
         </section>
 

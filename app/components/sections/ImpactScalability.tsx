@@ -1,11 +1,11 @@
-'use client'
+'use client';
 import { useEffect, useState } from "react";
 
 const stats = [
-  { label: "Pilot Smart Villages launched (2020–2024)", value: 50, suffix: "+" , icon: "🏘️" },
-  { label: "Poverty Reduction in implementation zones", value: 30, suffix: "%" , icon: "📉" },
-  { label: "Trained in GDHRP digital skills", value: 10000, suffix: "+" , icon: "🎓" },
-  { label: "Hectares Reforested via 7 Trees per Newly Born Child (7TPC)", value: 200, suffix: "" , icon: "🌳" },
+  { label: "Pilot Smart Villages launched (2020–2024)", value: 50, suffix: "+", icon: "🏘️" },
+  { label: "Poverty Reduction in implementation zones", value: 30, suffix: "%", icon: "📉" },
+  { label: "Trained in GDHRP digital skills", value: 10000, suffix: "+", icon: "🎓" },
+  { label: "Hectares Reforested via 7 Trees per Newly Born Child (7TPC)", value: 200, suffix: "", icon: "🌳" },
 ];
 
 const roadmapItems = [
@@ -14,7 +14,7 @@ const roadmapItems = [
   "UN SDG-aligned funding",
 ];
 
-// Simple CountUp hook
+// CountUp hook
 function useCountUp(end: number, duration = 2000) {
   const [count, setCount] = useState(0);
   useEffect(() => {
@@ -35,8 +35,8 @@ function useCountUp(end: number, duration = 2000) {
 }
 
 export default function ImpactScalability() {
-  // Call useCountUp for each stat *outside* of render loops
-  const counts = stats.map((stat) => useCountUp(stat.value));
+  // Call hooks at top level before return
+  const counts = stats.map(stat => useCountUp(stat.value));
 
   return (
     <section className="w-full mx-auto px-6 py-20 bg-[var(--color-lightBg)] rounded-lg shadow-lg relative overflow-hidden">
