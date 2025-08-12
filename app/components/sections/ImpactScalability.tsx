@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 const stats = [
   { label: "Pilot Smart Villages launched (2020–2024)", value: 50, suffix: "+", icon: "🏘️" },
@@ -15,29 +15,46 @@ const roadmapItems = [
   "UN SDG-aligned funding",
 ];
 
-// CountUp hook
-function useCountUp(end: number, duration = 2000) {
+function useCountUp(end: number, duration = 2000, start: boolean) {
   const [count, setCount] = useState(0);
+
   useEffect(() => {
-    let start = 0;
-    if (end === 0) return;
-    const increment = end / (duration / 30);
-    const timer = setInterval(() => {
-      start += increment;
-      if (start >= end) {
-        start = end;
-        clearInterval(timer);
+    if (!start) return; // Only start if triggered
+    if (end === 0) {
+      setCount(0);
+      return;
+    }
+
+    let startTimestamp: number | null = null;
+
+    function step(timestamp: number) {
+      if (!startTimestamp) startTimestamp = timestamp;
+      const progress = timestamp - startTimestamp;
+      const progressRatio = Math.min(progress / duration, 1);
+      setCount(Math.floor(progressRatio * end));
+      if (progress < duration) {
+        requestAnimationFrame(step);
+      } else {
+        setCount(end);
       }
-      setCount(Math.floor(start));
-    }, 30);
-    return () => clearInterval(timer);
-  }, [end, duration]);
+    }
+
+    requestAnimationFrame(step);
+  }, [end, duration, start]);
+
   return count;
 }
 
-// Single CountUp component for one stat
-function CountUpStat({ value, suffix }: { value: number; suffix: string }) {
-  const count = useCountUp(value);
+function CountUpStat({
+  value,
+  suffix,
+  start,
+}: {
+  value: number;
+  suffix: string;
+  start: boolean;
+}) {
+  const count = useCountUp(value, 2000, start);
   return (
     <>
       {count.toLocaleString()}
@@ -47,8 +64,36 @@ function CountUpStat({ value, suffix }: { value: number; suffix: string }) {
 }
 
 export default function ImpactScalability() {
+  const containerRef = useRef<null | HTMLDivElement>(null);
+  const [hasStarted, setHasStarted] = useState(false);
+
+  useEffect(() => {
+    if (!containerRef.current) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setHasStarted(true);
+          observer.disconnect(); // Only trigger once
+        }
+      },
+      {
+        root: null,
+        rootMargin: "0px",
+        threshold: 0.3, // 30% visible triggers animation
+      }
+    );
+
+    observer.observe(containerRef.current);
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section className="w-full mx-auto px-6 py-20 bg-[var(--color-lightBg)] rounded-lg shadow-lg relative overflow-hidden">
+    <section
+      ref={containerRef}
+      className="w-full mx-auto px-6 py-20 bg-[var(--color-lightBg)] rounded-lg shadow-lg relative overflow-hidden"
+    >
       {/* Decorative background shapes */}
       <div className="absolute -top-20 -right-20 w-72 h-72 bg-[var(--color-secondary)] rounded-full opacity-20 blur-3xl pointer-events-none"></div>
       <div className="absolute -bottom-24 -left-16 w-96 h-96 bg-[var(--color-primary)] rounded-full opacity-10 blur-2xl pointer-events-none"></div>
@@ -68,7 +113,7 @@ export default function ImpactScalability() {
               <div className="text-4xl">{icon}</div>
               <div>
                 <p className="text-3xl font-extrabold text-[var(--color-primary)]">
-                  <CountUpStat value={stats[i].value} suffix={suffix} />
+                  <CountUpStat value={stats[i].value} suffix={suffix} start={hasStarted} />
                 </p>
                 <p className="text-textDark font-medium">{label}</p>
               </div>
@@ -79,7 +124,8 @@ export default function ImpactScalability() {
         {/* Roadmap Card */}
         <div className="bg-white rounded-lg shadow-md p-8 flex flex-col">
           <p className="text-lg font-semibold text-textDark mb-4">
-            <span className="font-bold text-[var(--color-primary)]">Roadmap to 2030:</span> Scale to 500 Smart Villages via:
+            <span className="font-bold text-[var(--color-primary)]">Roadmap to 2030:</span> Scale
+            to 500 Smart Villages via:
           </p>
           <ul className="list-disc list-inside space-y-3 text-textDark text-lg">
             {roadmapItems.map((item, idx) => (
