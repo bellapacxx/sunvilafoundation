@@ -35,6 +35,9 @@ function useCountUp(end: number, duration = 2000) {
 }
 
 export default function ImpactScalability() {
+  // Call useCountUp for each stat *outside* of render loops
+  const counts = stats.map((stat) => useCountUp(stat.value));
+
   return (
     <section className="w-full mx-auto px-6 py-20 bg-[var(--color-lightBg)] rounded-lg shadow-lg relative overflow-hidden">
       {/* Decorative background shapes */}
@@ -48,24 +51,21 @@ export default function ImpactScalability() {
       <div className="px-40 grid md:grid-cols-2 gap-16 relative z-10">
         {/* Stats Cards */}
         <div className="grid grid-cols-2 gap-8">
-          {stats.map(({ label, value, suffix, icon }, i) => {
-            const count = useCountUp(value);
-            return (
-              <div
-                key={i}
-                className="flex items-center space-x-4 bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition"
-              >
-                <div className="text-4xl">{icon}</div>
-                <div>
-                  <p className="text-3xl font-extrabold text-[var(--color-primary)]">
-                    {count.toLocaleString()}
-                    {suffix}
-                  </p>
-                  <p className="text-textDark font-medium">{label}</p>
-                </div>
+          {stats.map(({ label, suffix, icon }, i) => (
+            <div
+              key={i}
+              className="flex items-center space-x-4 bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition"
+            >
+              <div className="text-4xl">{icon}</div>
+              <div>
+                <p className="text-3xl font-extrabold text-[var(--color-primary)]">
+                  {counts[i].toLocaleString()}
+                  {suffix}
+                </p>
+                <p className="text-textDark font-medium">{label}</p>
               </div>
-            );
-          })}
+            </div>
+          ))}
         </div>
 
         {/* Roadmap Card */}
