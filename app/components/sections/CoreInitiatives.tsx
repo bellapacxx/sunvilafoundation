@@ -8,10 +8,10 @@ export default function CoreInitiatives() {
       number: "1",
       title: "Smart People Development (PION Business Model)",
       items: [
-        { text: "Phase 1: Winning Mentality-The Power of Vision + Undivided Belief + Potential + Action", tags: ["Vision", "Belief", "Action"] },
+        { text: "Phase 1: Winning Mentality-The Power of Vision + Undivided Belief + Potential + Action", tags: ["Vision","Potential", "Undivided Belief", "Action"] },
         { text: "Phase 2: Winning Team-The Power of Synergy (S=N^2/3n)", tags: ["Synergy", "Teamwork"] },
-        { text: "Phase 3: Winning Organizations (Performance-Based Profit Sharing)", tags: ["Profit Sharing", "Performance"] },
-        { text: "Phase 4: Winning Nations (Global Diaspora Networks)", tags: ["Global", "Diaspora"] },
+        { text: "Phase 3: Winning Organization-The Power of Shared Vision (Vertical & Horizontal Organizational Development )", tags: ["Profit Sharing", "Performance"] },
+        { text: "Phase 4: Winning Nation-The Power Interconnectedness (Increased Global Marketshare)", tags: ["Global", "Diaspora"] },
       ],
       iconColor: "var(--color-primary)",
       progress: 80,
@@ -36,7 +36,7 @@ export default function CoreInitiatives() {
       items: [
         { text: "8KW Solar-Powered Homes (Carbon Credit Model)", tags: ["Solar", "Carbon Credit"] },
         { text: "Rainwater harvesting & organic farming", tags: ["Sustainability", "Organic"] },
-        { text: '"7 Trees per Child" Reforestation Policy', tags: ["Reforestation", "Policy"] },
+        { text: '"7 Trees per Child" Reforestation Policy 7TPC', tags: ["Reforestation", "Policy"] },
       ],
       iconColor: "var(--color-primary)",
       progress: 70,
