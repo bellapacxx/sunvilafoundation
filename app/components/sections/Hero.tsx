@@ -69,12 +69,12 @@ export default function HeroSection() {
           variants={fadeInUp}
           custom={1}
         >
-          Sunvila Foundation is a pioneering social enterprise implementing{" "}
-          <span className="text-secondary font-semibold">
+          Sunvila Foundation is a pioneering social enterprise spearheading{" "}
+          <span className="text-green-600 font-bold">
             Global Diaspora Home Reconnection Program (GDHRP)
           </span>{" "}
           and{" "}
-          <span className="text-secondary font-semibold">
+          <span className="text-green-600 font-bold">
             Global Dynamic Startups Entrepreneurship (GDSEP)
           </span>{" "}
           to eradicate poverty through Green Smart Villages. We address structural and systemic barriers in underserved communities by reengineering rural settlements with smart mindsets, skillsets, and toolsets.

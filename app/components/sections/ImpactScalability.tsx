@@ -3,16 +3,18 @@
 import { useEffect, useState, useRef } from "react";
 
 const stats = [
-  { label: "Pilot Smart Villages launched (2020–2024)", value: 50, suffix: "+", icon: "🏘️" },
+  { label: "Pilot Smart Villages Being launched (2020–2026)", value: 50, suffix: "+", icon: "🏘️" },
   { label: "Poverty Reduction in implementation zones", value: 30, suffix: "%", icon: "📉" },
-  { label: "Trained in GDHRP digital skills", value: 10000, suffix: "+", icon: "🎓" },
-  { label: "Hectares Reforested via 7 Trees per Newly Born Child (7TPC)", value: 200, suffix: "", icon: "🌳" },
+  { label: "Traines in GDHRP digital skills", value: 10000, suffix: "+", icon: "🎓" },
+  { label: "Hectares Reforestation via 7 Trees per Newly Born Child (7TPC)", value: 200, suffix: "", icon: "🌳" },
 ];
 
 const roadmapItems = [
   "Public-private partnerships",
   "Diaspora investment networks",
   "UN SDG-aligned funding",
+  "GDHRP",
+  "GDSEP",
 ];
 
 function useCountUp(end: number, duration = 2000, start: boolean) {
@@ -102,14 +104,15 @@ export default function ImpactScalability() {
         Impact & Scalability
       </h2>
 
-      <div className="px-40 grid md:grid-cols-2 gap-16 relative z-10">
+      <div className="px-30 grid md:grid-cols-2 gap-16 relative z-10">
         {/* Stats Cards */}
         <div className="grid grid-cols-2 gap-8">
           {stats.map(({ label, suffix, icon }, i) => (
             <div
               key={i}
               className="flex items-center space-x-4 bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition"
-            >
+            >  
+               <h1>Mini Milestone</h1>
               <div className="text-4xl">{icon}</div>
               <div>
                 <p className="text-3xl font-extrabold text-[var(--color-primary)]">

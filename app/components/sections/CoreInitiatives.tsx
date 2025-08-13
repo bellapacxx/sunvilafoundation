@@ -6,10 +6,10 @@ export default function CoreInitiatives() {
   const initiatives = [
     {
       number: "1",
-      title: "Smart People Development (PION Model)",
+      title: "Smart People Development (PION Business Model)",
       items: [
-        { text: "Phase 1: Winning Mentality (Vision + Belief + Action)", tags: ["Vision", "Belief", "Action"] },
-        { text: "Phase 2: Winning Teams (*Synergy: 1+1=2N*)", tags: ["Synergy", "Teamwork"] },
+        { text: "Phase 1: Winning Mentality-The Power of Vision + Undivided Belief + Potential + Action", tags: ["Vision", "Belief", "Action"] },
+        { text: "Phase 2: Winning Team-The Power of Synergy (S=N^2/3n)", tags: ["Synergy", "Teamwork"] },
         { text: "Phase 3: Winning Organizations (Performance-Based Profit Sharing)", tags: ["Profit Sharing", "Performance"] },
         { text: "Phase 4: Winning Nations (Global Diaspora Networks)", tags: ["Global", "Diaspora"] },
       ],

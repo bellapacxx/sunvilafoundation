@@ -9,7 +9,9 @@ export default function Footer() {
         <div className="text-center md:text-left">
           <h2 className="text-2xl font-heading text-[#A35A00]">Sunvila Foundation</h2>
           <p className="mt-1 text-sm max-w-xs">
-            Transforming Poverty through Smart Village Revolution
+            <Link href="/" className="hover:text-[#F5A623] transition-colors">
+            www.sunvilafoundation.io
+          </Link>
           </p>
         </div>
 

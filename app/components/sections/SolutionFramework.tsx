@@ -97,7 +97,7 @@ export default function SolutionFramework() {
     },
     {
       title: "Smart Finance",
-      description: "Green Bank, Microfinance, 10% Profit Philanthropy",
+      description: "Green Bank, Microfinance, CryptoCurrency, 10% Profit Philanthropy",
       color: "var(--color-accent)",
       icon: (
         <svg
