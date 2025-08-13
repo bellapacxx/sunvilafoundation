@@ -104,7 +104,7 @@ export default function ImpactScalability() {
         Impact & Scalability
       </h2>
 
-      <div className="px-30 grid md:grid-cols-2 gap-16 relative z-10">
+      <div className="px-20 grid md:grid-cols-2 gap-16 relative z-10">
         {/* Stats Cards */}
         <div className="grid grid-cols-2 gap-8">
           {stats.map(({ label, suffix, icon }, i) => (
