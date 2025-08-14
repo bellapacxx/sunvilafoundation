@@ -12,6 +12,12 @@ export default function Footer() {
             <Link href="/" className="hover:text-[#F5A623] transition-colors">
             www.sunvilafoundation.io
           </Link>
+          <Link href="www.sunvilacoin.io" className="hover:text-[#F5A623] transition-colors">
+            www.sunvilacoin.io
+          </Link>
+          <Link href="www.sunvilagold.io" className="hover:text-[#F5A623] transition-colors">
+            www.sunvilagold.io
+          </Link>
           </p>
         </div>
 

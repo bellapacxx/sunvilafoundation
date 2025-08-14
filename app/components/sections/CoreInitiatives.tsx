@@ -11,7 +11,7 @@ export default function CoreInitiatives() {
         { text: "Phase 1: Winning Mentality-The Power of Vision + Undivided Belief + Potential + Action", tags: ["Vision","Potential", "Undivided Belief", "Action"] },
         { text: "Phase 2: Winning Team-The Power of Synergy (S=N^2/3n)", tags: ["Synergy", "Teamwork"] },
         { text: "Phase 3: Winning Organization-The Power of Shared Vision (Vertical & Horizontal Organizational Development )", tags: ["Profit Sharing", "Performance"] },
-        { text: "Phase 4: Winning Nation-The Power Interconnectedness (Increased Global Marketshare)", tags: ["Global", "Diaspora"] },
+        { text: "Phase 4: Winning Nation-The Power of Interconnectedness (Increased Global Marketshare)", tags: ["Global Marketshare", "Interconnectedness"] },
       ],
       iconColor: "var(--color-primary)",
       progress: 80,
