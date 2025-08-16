@@ -427,7 +427,7 @@ export default function CoreInitiatives() {
   <h3 className="text-xl sm:text-2xl font-bold mb-2 sm:mb-4">{title} Insights</h3>
   <p className="mb-4 sm:mb-6 italic">{extraInfo}</p>
 
-  <div className="space-y-6">
+  <div className="space-y-5">
     {Array.from(new Set(details.map(d => d.parentHeader))).map((parent) => {
       const key = parent ?? "unknown";
 
