@@ -3,6 +3,7 @@
 import { useState } from "react";
 
 type DetailItem = {
+  parentHeader?: string;
   heading: string;
   perspective?: string;
   formula?: string;
@@ -55,21 +56,25 @@ export default function CoreInitiatives() {
   extraInfo: "Building resilient communities starts with empowered individuals who embrace winning mindsets.",
   details: [
     {
+      parentHeader: "The Power of Vision + Undivided Belief + Potential + Action",
       heading: "The Power of Creativity",
       perspective: `Creativity is the engine of systemic change. It combines vision, undivided belief, sub-conscious mind and action to design solutions that break poverty cycles. In Smart Villages, creativity turns constraints (e.g., lack of electricity) into opportunities (e.g., solar-powered agro-processing). Creativity plus marketable products and services provides innovation. Innovation plus social and economic values gives you entrepreneurship. Creativity is, therefore, the root of innovation and entrepreneurship.`,
       formula: "Creativity = Vision + Undivided Belief + Potential + Action"
     },
     {
+      parentHeader: "The Power of Vision + Undivided Belief + Potential + Action",
       heading: "Vision",
       perspective: `Vision is the "north star" for communities—a clear, compelling future state (e.g., a self-sustaining Smart Village). It’s not abstract; it’s measurable (e.g., "100% digital literacy by 2030").`,
       example: `"A highland settlement transforming from subsistence farming to a blockchain-enabled coffee exporter."`
     },
     {
+      parentHeader: "The Power of Vision + Undivided Belief + Potential + Action",
       heading: "Undivided Belief",
       perspective: `The unshakable conviction that poverty is solvable. It’s the decision to reject "how things are" and commit to how they could be (e.g., believing idle labor can become skilled digital workers).`,
       keyTool: "PION Business Model (Phase 1: Winning Mentality)"
     },
     {
+      parentHeader: "The Power of Vision + Undivided Belief + Potential + Action",
       heading: "Potential",
       perspective: `The untapped resources within individuals and communities—often suppressed by systemic barriers. We activate it through:`,
       activation: [
@@ -79,23 +84,27 @@ export default function CoreInitiatives() {
       example: `A farmer’s potential isn’t just growing crops—it’s mastering IoT-based irrigation to triple yields.`
     },
     {
+      parentHeader: "The Power of Vision + Undivided Belief + Potential + Action",
       heading: "Action",
       perspective: `The bridge between ideas and impact. Action is humanity expressed—like a mother using mobile banking to save for her child’s education.`,
       metric: `"Opportunity Realization Index" (measuring ideas turned into income)`
     },
     {
+      parentHeader: "The Power of Synergy",
       heading: "The Power of Synergy",
       perspective: `Synergy is exponential collaboration: 1+1=2N (where N > 1). It’s how Smart Villages achieve more than the sum of individual efforts.`,
       formula: "Synergy = Team Vision + Passion + Discipline + Ethical Behavior",
       example: `Women’s cooperatives pooling solar-powered textile microfactories to access global markets.`
     },
     {
+      parentHeader: "The Power of Synergy",
       heading: "Team Work",
       perspective: `Teams are "poverty-solving squads" with complementary skills (e.g., a farmer + coder co-designing a crop-tracking app).`,
       rule: "Vertical + Horizontal Development (see below)"
     },
     {
-      heading: "The Power of Shared Vision",
+      parentHeader: "The Power of Shared Vision",
+      heading: "ProfitSharing",
       perspective: `When community needs align with organizational goals, productivity soars. We incentivize this via:`,
       profitSharing: [
         { tier: "60%", reward: "Salary" },
@@ -105,6 +114,7 @@ export default function CoreInitiatives() {
       outcome: `Creates a "middle class" (shock absorbers for economic crises).`
     },
     {
+      parentHeader: "The Power of Shared Vision",
       heading: "Vertical & Horizontal Organizational Development",
        definitions: {
         vertical: "Scaling impact upward (e.g., a village cluster → regional Smart Village network).",
@@ -112,17 +122,10 @@ export default function CoreInitiatives() {
       },
       purpose: "Builds resilient ecosystems (not isolated projects)."
     },
+    
     {
-      heading: "Global Market Share",
-      perspective: `The % of a market (e.g., organic coffee, digital outsourcing) controlled by Smart Village products/services. We achieve this by:`,
-      strategies: [
-        "Diaspora networks (Ethiopian expats promoting village-made goods).",
-        "Digital platforms (e-commerce, crypto payments)."
-      ],
-      target: "5%+ market share in niche sectors (e.g., solar tech accessories)."
-    },
-    {
-      heading: "The Power of Interconnectedness",
+      parentHeader: "The Power of Interconnectedness",
+      heading: "Interconnectedness",
       perspective: `The strategic linking of Smart Villages to global systems:`,
       systems: {
         financial: "Green Bank → international investors",
@@ -135,7 +138,17 @@ export default function CoreInitiatives() {
         "Transforming deforestation into carbon credit economies.",
         "Making Smart Villages nodes in global value chains."
       ]
-    }
+    },
+    {
+      parentHeader: "The Power of Interconnectedness",
+      heading: "Global Market Share",
+      perspective: `The % of a market (e.g., organic coffee, digital outsourcing) controlled by Smart Village products/services. We achieve this by:`,
+      strategies: [
+        "Diaspora networks (Ethiopian expats promoting village-made goods).",
+        "Digital platforms (e-commerce, crypto payments)."
+      ],
+      target: "5%+ market share in niche sectors (e.g., solar tech accessories)."
+    },
   ]
 }
 ,
@@ -296,6 +309,8 @@ export default function CoreInitiatives() {
   ];
 
   const [flipped, setFlipped] = useState<number[]>([]);
+  const [selectedTag, setSelectedTag] = useState<Record<string, string | null>>({});
+
 
   const toggleFlip = (index: number) => {
     setFlipped((prev) =>
@@ -324,6 +339,7 @@ export default function CoreInitiatives() {
         {initiatives.map((initiative, idx) => {
           const { number, title, items, iconColor, progress, extraInfo, details } = initiative;
           const isFlipped = flipped.includes(idx);
+          
 
           return (
             <div
@@ -396,127 +412,116 @@ export default function CoreInitiatives() {
                 </div>
 
                 {/* Back Side */}
-                <div
-                  className="absolute inset-0 bg-gradient-to-tr from-[var(--color-primary)] via-[var(--color-secondary)] to-[var(--color-accent)] rounded-xl p-4 sm:p-8 text-white shadow-xl overflow-y-auto"
-                  style={{
-                    backfaceVisibility: "hidden",
-                    transform: "rotateY(180deg)",
-                    position: "absolute",
-                    top: 0,
-                    left: 0,
-                    width: "100%",
-                    height: "100%",
+<div
+  className="absolute inset-0 bg-gradient-to-tr from-[var(--color-primary)] via-[var(--color-secondary)] to-[var(--color-accent)] rounded-xl p-4 sm:p-8 text-white shadow-xl overflow-y-auto"
+  style={{
+    backfaceVisibility: "hidden",
+    transform: "rotateY(180deg)",
+    position: "absolute",
+    top: 0,
+    left: 0,
+    width: "100%",
+    height: "100%",
+  }}
+>
+  <h3 className="text-xl sm:text-2xl font-bold mb-2 sm:mb-4">{title} Insights</h3>
+  <p className="mb-4 sm:mb-6 italic">{extraInfo}</p>
+
+  <div className="space-y-6">
+    {Array.from(new Set(details.map(d => d.parentHeader))).map((parent) => {
+      const key = parent ?? "unknown";
+
+      return (
+        <div key={key} className="mb-6">
+          <h4 className="font-bold text-lg mb-2">{parent}</h4>
+
+          {/* Tags */}
+          <div className="flex flex-wrap gap-2 mb-4">
+            {details
+              .filter(d => d.parentHeader === parent)
+              .map(d => (
+                <button
+                  key={d.heading}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setSelectedTag(prev => ({
+                      ...prev,
+                      [key]: prev[key] === d.heading ? null : d.heading
+                    }));
                   }}
+                  className={`px-3 py-1 rounded-full text-xs font-semibold transition ${
+                    selectedTag[key] === d.heading
+                      ? "bg-white text-black"
+                      : "bg-white/20 text-white hover:bg-white/40"
+                  }`}
                 >
-                  <h3 className="text-xl sm:text-2xl font-bold mb-2 sm:mb-4">{title} Insights</h3>
-                  <p className="mb-4 sm:mb-6 italic">{extraInfo}</p>
-                  <div className="space-y-6">
-                    {details.map((detail, i) => (
-                      <div key={i} className="bg-white/10 p-4 rounded-lg">
-                        <h4  className="font-semibold text-sm sm:text-lg mb-1 sm:mb-2">{detail.heading}</h4>
-                        <p className="opacity-90 text-xs sm:text-sm mb-2">{detail.perspective}</p>
-                        {/* Systems (conditional) */}
-  {'systems' in detail && (
-    <div className="mt-2 bg-black/20 p-2 rounded">
-      <strong>Systems:</strong>
-      <ul className="ml-4 mt-1 list-disc">
-        <li>Financial: {detail.systems?.financial}</li>
-        <li>Technological: {detail.systems?.technological}</li>
-        <li>Cultural: {detail.systems?.cultural}</li>
-      </ul>
-    </div>
-  )}
-  {'definitions' in detail && (
-    <div className="mt-2 bg-black/20 p-2 rounded">
-      <strong>Definitions:</strong>
-      <ul className="ml-4 mt-1 list-disc">
-        <li>Vertical: {detail.definitions?.vertical}</li>
-        <li>Horizontal: {detail.definitions?.vertical}</li>
-      </ul>
-    </div>
-  )}
+                  {d.heading}
+                </button>
+              ))}
+          </div>
 
-  {/* Why It Matters (conditional) */}
-  {'whyItMatters' in detail && (
-    <div className="mt-2 bg-black/20 p-2 rounded">
-      <strong>Why It Matters:</strong>
-      <ul className="ml-4 mt-1 list-disc">
-        {detail.whyItMatters?.map((item, index) => (
-          <li key={index}>{item}</li>
-        ))}
-      </ul>
-    </div>
-  )}
-  {/* strategies (conditional) */}
-  {'strategies' in detail && (
-    <div className="mt-2 bg-black/20 p-2 rounded">
-      <strong>Startegies:</strong>
-      <ul className="ml-4 mt-1 list-disc">
-        {detail.strategies?.map((item, index) => (
-          <li key={index}>{item}</li>
-        ))}
-      </ul>
-    </div>
-  )}
-
-  {/* Tool (conditional) */}
-  {'tool' in detail && (
-    <div className="mt-2 italic bg-black/20 p-2 rounded">
-      <strong>Tool:</strong> {detail.tool}
-    </div>
-  )}
-                        {'formula' in detail && (
-                          <p className="mt-1 italic bg-black/20 p-2 rounded">
-                            <strong>Formula:</strong> {detail.formula}
-                          </p>
-                        )}
-                        
-                        {'example' in detail && (
-                          <p className="mt-2 text-sm bg-black/20 p-2 rounded">
-                            <strong>Example:</strong> {detail.example}
-                          </p>
-                        )}
-                        
-                        {'keyTool' in detail && (
-                          <p className="mt-2">
-                            <strong>Key Tool:</strong> {detail.keyTool}
-                          </p>
-                        )}
-                        
-                        {'metric' in detail && (
-                          <p className="mt-2">
-                            <strong>Metric:</strong> {detail.metric}
-                          </p>
-                        )}
-                        
-                        {'activation' in detail && detail.activation && (
-                          <div className="mt-2">
-                            <strong>Activation:</strong>
-                            <ul className="list-disc list-inside ml-4 mt-1">
-                              {detail.activation.map((item, i) => (
-                                <li key={i}>{item}</li>
-                              ))}
-                            </ul>
-                          </div>
-                        )}
-                        
-                        {'profitSharing' in detail && detail.profitSharing && (
-                          <div className="mt-3">
-                            <strong>Profit Sharing:</strong>
-                            <ul className="mt-1 space-y-1">
-                              {detail.profitSharing.map(({ tier, reward }, i) => (
-                                <li key={i} className="flex gap-2">
-                                  <span className="font-medium">{tier}:</span>
-                                  <span>{reward}</span>
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-                        )}
-                      </div>
-                    ))}
+          {/* Selected detail */}
+          {selectedTag[key] && (
+            <div className="bg-white/10 p-3 rounded">
+              {details
+                .filter(d => d.parentHeader === parent && d.heading === selectedTag[key])
+                .map(d => (
+                  <div key={d.heading}>
+                    <p className="font-semibold">{d.heading}</p>
+                    {d.perspective && <p>{d.perspective}</p>}
+                    {d.formula && <p><strong>Formula:</strong> {d.formula}</p>}
+                    {d.example && <p><strong>Example:</strong> {d.example}</p>}
+                    {d.keyTool && <p><strong>Key Tool:</strong> {d.keyTool}</p>}
+                    {d.metric && <p><strong>Metric:</strong> {d.metric}</p>}
+                    {d.activation && (
+                      <ul className="list-disc list-inside ml-4 mt-1">
+                        {d.activation.map((item, i) => <li key={i}>{item}</li>)}
+                      </ul>
+                    )}
+                    {d.profitSharing && (
+                      <ul className="mt-1 space-y-1">
+                        {d.profitSharing.map(({ tier, reward }, i) => (
+                          <li key={i} className="flex gap-2">
+                            <span className="font-medium">{tier}:</span> {reward}
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                    {d.systems && (
+                      <ul className="ml-4 mt-1 list-disc">
+                        <li>Financial: {d.systems.financial}</li>
+                        <li>Technological: {d.systems.technological}</li>
+                        <li>Cultural: {d.systems.cultural}</li>
+                      </ul>
+                    )}
+                    {d.definitions && (
+                      <ul className="ml-4 mt-1 list-disc">
+                        <li>Vertical: {d.definitions.vertical}</li>
+                        <li>Horizontal: {d.definitions.horizontal}</li>
+                      </ul>
+                    )}
+                    {d.whyItMatters && (
+                      <ul className="ml-4 mt-1 list-disc">
+                        {d.whyItMatters.map((item, i) => <li key={i}>{item}</li>)}
+                      </ul>
+                    )}
+                    {d.strategies && (
+                      <ul className="ml-4 mt-1 list-disc">
+                        {d.strategies.map((item, i) => <li key={i}>{item}</li>)}
+                      </ul>
+                    )}
+                    {d.tool && <p className="italic">{d.tool}</p>}
                   </div>
-                </div>
+                ))}
+            </div>
+          )}
+        </div>
+      );
+    })}
+  </div>
+</div>
+
+
               </div>
             </div>
           );
