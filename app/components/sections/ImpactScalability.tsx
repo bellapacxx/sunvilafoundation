@@ -94,38 +94,38 @@ export default function ImpactScalability() {
   return (
     <section
   ref={containerRef}
-  className="w-full mx-auto px-6 py-20 bg-[var(--color-lightBg)] rounded-lg shadow-lg relative overflow-hidden"
+  className="w-full mx-auto px-4 sm:px-6 py-16 sm:py-20 bg-[var(--color-lightBg)] rounded-lg shadow-lg relative overflow-hidden"
 >
   {/* Decorative background shapes */}
-  <div className="absolute -top-20 -right-20 w-72 h-72 bg-[var(--color-secondary)] rounded-full opacity-20 blur-3xl pointer-events-none"></div>
-  <div className="absolute -bottom-24 -left-16 w-96 h-96 bg-[var(--color-primary)] rounded-full opacity-10 blur-2xl pointer-events-none"></div>
+  <div className="absolute -top-12 -right-12 w-48 h-48 sm:w-72 sm:h-72 sm:-top-20 sm:-right-20 bg-[var(--color-secondary)] rounded-full opacity-20 blur-3xl pointer-events-none"></div>
+  <div className="absolute -bottom-16 -left-8 w-64 h-64 sm:w-96 sm:h-96 sm:-bottom-24 sm:-left-16 bg-[var(--color-primary)] rounded-full opacity-10 blur-2xl pointer-events-none"></div>
 
   {/* Section Title */}
-  <h2 className="text-4xl font-heading font-bold text-[var(--color-primary)] mb-16 text-center relative z-10">
+  <h2 className="text-3xl sm:text-4xl font-heading font-bold text-[var(--color-primary)] mb-12 sm:mb-16 text-center relative z-10">
     Impact & Scalability
   </h2>
 
-  <div className="px-20 grid md:grid-cols-2 gap-16 relative z-10">
+  <div className="px-4 sm:px-10 grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-16 relative z-10">
     {/* Left Column */}
     <div className="flex flex-col">
       {/* Mini Milestone Header */}
-      <h3 className="text-3xl font-semibold text-[var(--color-primary)] mb-8">
+      <h3 className="text-2xl sm:text-3xl font-semibold text-[var(--color-primary)] mb-6 sm:mb-8">
         Mini Milestones
       </h3>
 
       {/* Stats Cards */}
-      <div className="grid grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
         {stats.map(({ label, suffix, icon }, i) => (
           <div
             key={i}
-            className="flex items-center space-x-4 bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition"
+            className="flex items-center space-x-4 bg-white rounded-lg shadow-md p-4 sm:p-6 hover:shadow-xl transition"
           >
-            <div className="text-4xl">{icon}</div>
+            <div className="text-3xl sm:text-4xl">{icon}</div>
             <div>
-              <p className="text-3xl font-extrabold text-[var(--color-primary)]">
+              <p className="text-2xl sm:text-3xl font-extrabold text-[var(--color-primary)]">
                 <CountUpStat value={stats[i].value} suffix={suffix} start={hasStarted} />
               </p>
-              <p className="text-textDark font-medium">{label}</p>
+              <p className="text-textDark font-medium text-sm sm:text-base">{label}</p>
             </div>
           </div>
         ))}
@@ -133,12 +133,12 @@ export default function ImpactScalability() {
     </div>
 
     {/* Right Column - Roadmap */}
-    <div className="bg-white rounded-lg shadow-md p-8 flex flex-col">
-      <p className="text-lg font-semibold text-textDark mb-4">
+    <div className="bg-white rounded-lg shadow-md p-6 sm:p-8 flex flex-col mt-8 md:mt-0">
+      <p className="text-base sm:text-lg font-semibold text-textDark mb-4">
         <span className="font-bold text-[var(--color-primary)]">Roadmap to 2030:</span> Scale
         to 500 Smart Villages via:
       </p>
-      <ul className="list-disc list-inside space-y-3 text-textDark text-lg">
+      <ul className="list-disc list-inside space-y-2 sm:space-y-3 text-textDark text-sm sm:text-lg">
         {roadmapItems.map((item, idx) => (
           <li
             key={idx}
@@ -148,12 +148,13 @@ export default function ImpactScalability() {
           </li>
         ))}
       </ul>
-      <p className="mt-auto mt-8 text-sm italic text-gray-500">
+      <p className="mt-auto mt-4 sm:mt-8 text-xs sm:text-sm italic text-gray-500">
         *Partnerships and investments are key drivers for this scale-up.*
       </p>
     </div>
   </div>
 </section>
+
 
   );
 }

@@ -4,7 +4,7 @@ import { UserPlus, Heart } from "lucide-react";
 export default function CallToAction() {
   return (
     <section
-      className="relative py-24 px-6 text-center text-lightBg w-full overflow-hidden rounded-xl"
+      className="relative py-24 px-6 text-center text-lightBg w-full overflow-hidden"
       style={{
         background: `linear-gradient(135deg, var(--color-primary), var(--color-secondary))`,
       }}

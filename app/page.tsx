@@ -1,5 +1,6 @@
 import CallToAction from "./components/sections/CallToAction";
-import CoreInitiatives from "./components/sections/CoreInitiatives";
+import Core from "./components/sections/core";
+
 import GovernanceFinance from "./components/sections/GovernanceFinance";
 import HeroSection from "./components/sections/Hero";
 import ImpactScalability from "./components/sections/ImpactScalability";
@@ -12,7 +13,7 @@ export default function HomePage() {
      <HeroSection/>
      <ProblemStatement/>
      <SolutionFramework/>
-     <CoreInitiatives/>
+     <Core/>
      <ImpactScalability/>
      <GovernanceFinance/>
      <CallToAction/>
