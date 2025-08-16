@@ -413,7 +413,7 @@ export default function CoreInitiatives() {
 
                 {/* Back Side */}
 <div
-  className="absolute inset-0 bg-gradient-to-tr from-[var(--color-primary)] via-[var(--color-secondary)] to-[var(--color-accent)] rounded-xl p-4 sm:p-8 text-white shadow-xl overflow-y-auto"
+  className="absolute inset-0 bg-gradient-to-tr from-[var(--color-primary)] via-[var(--color-secondary)] to-[var(--color-primary)] rounded-xl p-4 sm:p-8 text-white shadow-xl overflow-y-auto"
   style={{
     backfaceVisibility: "hidden",
     transform: "rotateY(180deg)",
