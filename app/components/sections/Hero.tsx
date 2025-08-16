@@ -15,7 +15,7 @@ const fadeInUp = {
 export default function HeroSection() {
   return (
     <section
-      className="relative w-full bg-lightBg text-textDark py-24 px-6 text-center max-w-9xl mx-auto overflow-hidden"
+      className="relative w-full bg-lightBg text-textDark py-16 sm:py-24 px-4 sm:px-6 text-center max-w-9xl mx-auto overflow-hidden"
       aria-label="Hero Section"
     >
       {/* Enhanced animated gradient background */}
@@ -32,7 +32,7 @@ export default function HeroSection() {
         }}
       />
 
-      {/* Subtle floating translucent orbs */}
+      {/* Floating translucent orbs */}
       {[...Array(6)].map((_, i) => (
         <span
           key={i}
@@ -51,9 +51,9 @@ export default function HeroSection() {
       ))}
 
       {/* Content */}
-      <div className="relative z-10 max-w-4xl mx-auto">
+      <div className="relative z-10 max-w-4xl mx-auto px-2">
         <motion.h1
-          className="text-5xl font-heading font-bold mb-6 text-primary"
+          className="text-3xl sm:text-5xl font-heading font-bold mb-6 text-primary leading-tight"
           initial="hidden"
           animate="visible"
           variants={fadeInUp}
@@ -63,7 +63,7 @@ export default function HeroSection() {
         </motion.h1>
 
         <motion.p
-          className="text-xl mb-10 leading-relaxed"
+          className="text-base sm:text-xl mb-10 leading-relaxed text-gray-700 sm:px-6"
           initial="hidden"
           animate="visible"
           variants={fadeInUp}
@@ -77,11 +77,15 @@ export default function HeroSection() {
           <span className="text-green-600 font-bold">
             Global Dynamic Startups Entrepreneurship (GDSEP)
           </span>{" "}
-          to eradicate poverty through Green Smart Villages. We address structural and systemic barriers in underserved communities by reengineering rural settlements with smart mindsets, skillsets, and toolsets.
+          to eradicate poverty through Green Smart Villages. We address
+          structural and systemic barriers in underserved communities by
+          reengineering rural settlements with smart mindsets, skillsets, and
+          toolsets.
         </motion.p>
 
+        {/* CTA Buttons */}
         <motion.div
-          className="flex justify-center gap-8"
+          className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-8"
           initial="hidden"
           animate="visible"
           variants={fadeInUp}
@@ -89,13 +93,13 @@ export default function HeroSection() {
         >
           <a
             href="/partners"
-            className="bg-primary text-lightBg font-semibold px-8 py-4 rounded shadow hover:bg-secondary transition"
+            className="bg-secondary text-white font-semibold px-8 py-4 rounded-xl shadow-lg hover:bg-primary transition backdrop-blur-md"
           >
             Become a Partner
           </a>
           <a
             href="/donate"
-            className="border-2 border-primary text-primary font-semibold px-8 py-4 rounded hover:text-lightBg transition"
+            className="border-2 border-primary text-primary font-semibold px-8 py-4 rounded-xl hover:bg-primary hover:text-white transition backdrop-blur-md"
           >
             Donate Now
           </a>
@@ -116,7 +120,8 @@ export default function HeroSection() {
         }
 
         @keyframes floatY {
-          0%, 100% {
+          0%,
+          100% {
             transform: translateY(0);
           }
           50% {
